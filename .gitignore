@@ -1,0 +1,31 @@
+### Pycharm stuffs
+.idea/
+*__pycache__/
+
+### Pytorch model weights
+*.pth
+*.pt
+*.onnx
+./weights
+
+### logs
+/log/*
+
+### onnx
+/weights/*
+
+## python
+.ipynb_checkpoints
+
+### images
+*.jpg
+*.jpeg
+*.png
+*.tif
+*.tiff
+*.avi
+*.mp4
+
+# misc
+/experimental/*
+/scripts/*

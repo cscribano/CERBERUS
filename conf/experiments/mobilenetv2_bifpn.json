@@ -1,0 +1,110 @@
+{
+  "experiment" : {
+    "epochs": 75,
+    "device": "cuda",
+    "ck_epoch_step": 1,
+    "val_epoch_step": 1,
+    "logdir": "/data/logs"
+  },
+
+  "base": {
+    "lane_det": true,
+    "object_det": true,
+    "scene_cls": true,
+    "lane_classes": 8,
+    "det_classes": 10,
+
+    "scn_classes": {
+      "weather": 7,
+      "scene": 7,
+      "timeofday": 4
+    }
+  },
+
+  "model": {
+    "backbone": {
+      "name": "mobilenet_v2",
+      "args": {
+        "pretrained": true
+      }
+    },
+    "neck": {
+      "name": "BiFPNNeck",
+      "args": {}
+    },
+    "head_channel": 64,
+    "bn_momentum": 0.1
+  },
+
+  "optimizer": {
+    "name": "Adam",
+    "args": {
+      "lr": 2.5e-4
+    }
+  },
+
+  "lr_scheduler": {
+    "name": "WarmupMultiStepLR",
+    "args": {
+      "milestones": [100000, 200000],
+      "gamma": 0.5,
+      "warmup_iters": 3500
+    }
+  },
+
+  "loss": {
+    "heatmap_loss": {
+      "name": "WMSELoss",
+      "args": {}
+    },
+    "scn_loss": {
+      "name": "nn.CrossEntropyLoss",
+      "args": {}
+    }
+  },
+
+
+  "dataset" : {
+    "images_root": "/data/BDD100K/bdd100k_images/bdd100k_images/images/100k",
+
+    "input_w": 640,
+    "input_h": 320,
+    "output_stride": 4,
+
+    "lane_det": {
+      "data_root": "/data/BDD100K",
+      "ppm": 25,
+      "sigma": {
+        "name": "CornerNetRadius",
+        "args": {}
+      }
+    },
+    "obj_det": {
+      "data_root": "/data/BDD100K/bdd100k_det/labels/det_20"
+    },
+
+    "train_dataset": {
+      "name": "MultitaskDataset",
+      "args": {
+        "mode": "train"
+      },
+      "loader_args": {
+        "shuffle": true,
+        "batch_size": 32,
+        "num_workers": 6
+      }
+    },
+
+    "val_dataset": {
+      "name": "MultitaskDataset",
+      "args": {
+        "mode": "val"
+      },
+      "loader_args": {
+        "shuffle": false,
+        "batch_size": 16,
+        "num_workers": 4
+      }
+    }
+  }
+}
