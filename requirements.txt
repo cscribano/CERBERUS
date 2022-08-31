@@ -2,11 +2,11 @@ python-dateutil>=2.7.3
 pytz==2021.1
 click==8.1.2
 pytorch_lightning==1.6.2
-opencv-contrib-python==4.1.2
+opencv-contrib-python==4.1.2.30
 numpy==1.21.0
 albumentations==1.1.0
 onnx==1.11.0
-onnxsim==0.48.0
+onnxsim==0.4.8.0
 scipy==1.7.2
 pycuda==2021.1
 cupy-cuda111==10.5.0
