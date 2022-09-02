@@ -1,7 +1,7 @@
 # CERBERUS: CEnterR Based Ent-to-end peRception Using a Single model
 
 This is the official code repository for **"CERBERUS: Simple and Effective All-In-One Automotive Perception
-Model with Multi Task Learning"** ([PAPER]())
+Model with Multi Task Learning"** ([PAPER](./docs/paper.pdf))
 
 ## Model
 
