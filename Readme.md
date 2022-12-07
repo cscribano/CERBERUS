@@ -119,4 +119,16 @@ Please notice that the `.json` extension is NOT part of the experiment name:
 
 
 ## References
-To be presented at [PNARUDE](https://iros2022-pnarude.github.io/) Workshop @ IROS 
+Presented at [PNARUDE](https://iros2022-pnarude.github.io/) Workshop @ IROS 
+
+If you use CERBERUS in your research, please cite the following paper.
+```
+@article{scribano2022cerberus,
+  title={CERBERUS: Simple and Effective All-In-One Automotive Perception Model with Multi Task Learning},
+  author={Scribano, Carmelo and Franchini, Giorgia and Olmedo, Ignacio Sanudo and Bertogna, Marko},
+  journal={arXiv preprint arXiv:2210.00756},
+  year={2022}
+}
+```
+
+For use in commercial solutions, write at carmelo.scribano@unimore.it or refer to https://hipert.unimore.it/ .
